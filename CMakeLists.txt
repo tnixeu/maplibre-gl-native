@@ -953,6 +953,90 @@ if(MBGL_WITH_OPENGL)
     )
 endif()
 
+set_target_properties(mbgl-core PROPERTIES UNITY_BUILD_MODE BATCH UNITY_BUILD_BATCH_SIZE 20)
+
+set_source_files_properties(
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/gfx/headless_backend.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/gl/headless_backend.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/i18n/collator.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/layermanager/layer_manager.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/storage/file_source_manager.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/storage/local_file_source.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/storage/mbtiles_file_source.cpp
+    ${PROJECT_SOURCE_DIR}/platform/default/src/mbgl/storage/offline_database.cpp
+
+    ${PROJECT_SOURCE_DIR}/platform/qt/src/mbgl/gl_functions.cpp
+    ${PROJECT_SOURCE_DIR}/platform/qt/src/mbgl/image.cpp
+    ${PROJECT_SOURCE_DIR}/platform/qt/src/mbgl/number_format.cpp
+    ${PROJECT_SOURCE_DIR}/platform/qt/src/mbgl/sqlite3.cpp
+    ${PROJECT_SOURCE_DIR}/platform/qt/src/mbgl/thread.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gfx/attribute.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gfx/renderer_backend.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gl/attribute.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gl/renderer_backend.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gl/value.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/layermanager/layer_manager.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/platform/gl_functions.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/buckets/fill_bucket.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/image_atlas.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/image_manager.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_circle_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_fill_extrusion_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_fill_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_heatmap_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_hillshade_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_line_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_raster_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/layers/render_symbol_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/pattern_atlas.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/render_orchestrator.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/render_source.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/renderer/tile_pyramid.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/sprite/sprite_loader.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/storage/file_source_manager.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/conversion/filter.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/conversion/function.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/conversion/layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/conversion/light.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/conversion/source.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/collator.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/formatted.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/image.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/interpolate.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/number_format.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/value.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/expression/within.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/filter.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/image.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/background_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/circle_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/fill_extrusion_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/heatmap_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/hillshade_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/line_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/raster_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/layers/symbol_layer.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/light.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/source.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/style/style_impl.cpp
+
+    ${PROJECT_SOURCE_DIR}/src/mbgl/text/glyph_manager.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/text/language_tag.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/util/interpolate.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/util/thread.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/util/tile_cover_impl.cpp
+
+    TARGET_DIRECTORY mbgl-core
+    PROPERTIES SKIP_UNITY_BUILD_INCLUSION ON
+)
+
 if(EXISTS ${PROJECT_SOURCE_DIR}/.git/HEAD)
     execute_process(
         COMMAND
