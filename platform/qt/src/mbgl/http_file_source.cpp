@@ -46,7 +46,7 @@ void HTTPFileSource::Impl::request(HTTPRequest* req)
 #if QT_VERSION >= QT_VERSION_CHECK(5, 15, 0)
     connect(data.first, &QNetworkReply::errorOccurred, this, &HTTPFileSource::Impl::onReplyFinished);
 #else
-    connect(data.first, &QNetworkReply::error, this, &HTTPFileSource::Impl::onReplyFinished);
+    connect(data.first, QOverload<QNetworkReply::NetworkError>::of(&QNetworkReply::error), this, &HTTPFileSource::Impl::onReplyFinished);
 #endif
 }
 
