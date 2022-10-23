@@ -110,6 +110,8 @@ add_library(
     ${PROJECT_SOURCE_DIR}/test/util/tile_server_options.test.cpp
 )
 
+set_property(TARGET mbgl-test PROPERTY UNITY_BUILD OFF)
+
 # MapSnapshotter uses headless backend that is rendering image on a background thread. QT / macOS adaptation for headless backend creates
 # new window and updates it's parameters, which is not allowed since macOS mohave 10.14. Following block disables snapshotter unit tests for
 # QT on macOS. https://github.com/mapbox/mapbox-gl-native/issues/16267
@@ -133,6 +135,7 @@ if(MBGL_WITH_OPENGL)
             ${PROJECT_SOURCE_DIR}/test/renderer/backend_scope.test.cpp
             ${PROJECT_SOURCE_DIR}/test/util/offscreen_texture.test.cpp
     )
+
     target_compile_definitions(
         mbgl-test
         PRIVATE MBGL_RENDER_BACKEND_OPENGL=1

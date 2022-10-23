@@ -975,6 +975,7 @@ set_source_files_properties(
     ${PROJECT_SOURCE_DIR}/src/mbgl/gfx/renderer_backend.cpp
 
     ${PROJECT_SOURCE_DIR}/src/mbgl/gl/attribute.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/gl/enum.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/gl/renderer_backend.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/gl/value.cpp
 
@@ -1029,6 +1030,7 @@ set_source_files_properties(
 
     ${PROJECT_SOURCE_DIR}/src/mbgl/text/glyph_manager.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/text/language_tag.cpp
+    ${PROJECT_SOURCE_DIR}/src/mbgl/text/shaping.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/util/interpolate.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/util/thread.cpp
     ${PROJECT_SOURCE_DIR}/src/mbgl/util/tile_cover_impl.cpp

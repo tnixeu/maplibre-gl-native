@@ -385,7 +385,7 @@ if(NOT MBGL_QT_LIBRARY_ONLY)
     else()
         target_link_libraries(
             mbgl-test-runner
-            PRIVATE -Wl,--whole-archive mbgl-test -Wl,--no-whole-archive
+            PRIVATE -Wl,--whole-archive mbgl-test -Wl,--no-whole-archive -lpthread
         )
     endif()
 endif()
